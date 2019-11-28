@@ -6,7 +6,7 @@ namespace Chessington.GameEngine.Pieces
 {
     public class Pawn : Piece
     {
-        public Pawn(Player player) 
+        public Pawn(Player player)
             : base(player) { }
 
         public override IEnumerable<Square> GetAvailableMoves(Board board)
@@ -15,22 +15,24 @@ namespace Chessington.GameEngine.Pieces
 
             var currentSquare = board.FindPiece(this);//Gets Current Position
 
-            var actualMoveWhite = currentSquare.Row - 1;
-            var actualMoveBlack = currentSquare.Row + 1;
+            int actualMoveWhite;//Initialises variable
+            int actualMoveBlack;//Initialises variable
 
-            var playerColor = this.Player;
+            var playerColor = this.Player;//Returns what color pieces the player is
 
-            if (pieces moved == false)
+            if (board.PiecesMoved == false)
             {
                 actualMoveWhite = currentSquare.Row - 2;
-            }
-            if else(pieces moved = true)
-            {
                 actualMoveBlack = currentSquare.Row + 2;
             }
-            if else (playerColor == Player.White)
+            else
             {
-                availableMoves.Add(Square.At(actualMoveWhite, currentSquare.Col ));
+                actualMoveWhite = currentSquare.Row - 1;
+                actualMoveBlack = currentSquare.Row + 1;
+            }
+            if (playerColor == Player.White)//Could possible simplify
+            {
+                availableMoves.Add(Square.At(actualMoveWhite, currentSquare.Col));
             }
             else
             {
