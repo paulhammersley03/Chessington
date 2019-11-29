@@ -10,20 +10,14 @@ namespace Chessington.GameEngine.Pieces
         {
             Player = player;
         }
-
         public Player Player { get; private set; }
-
         public abstract IEnumerable<Square> GetAvailableMoves(Board board);
-
         public void MoveTo(Board board, Square newSquare)
         {
             var currentSquare = board.FindPiece(this);
             board.MovePiece(currentSquare, newSquare);
             this.HasMoved = true;
         }
-
         public bool HasMoved { get; set; }
-        
-        
     }
 }
