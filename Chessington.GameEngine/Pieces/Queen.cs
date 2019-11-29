@@ -7,10 +7,10 @@ namespace Chessington.GameEngine.Pieces
     {
         public Queen(Player player)
             : base(player) { }
-
+        
         public override IEnumerable<Square> GetAvailableMoves(Board board)
         {
-            return Enumerable.Empty<Square>();
+            return MoveDirection.AllDirections(board, this);
         }
     }
 }
